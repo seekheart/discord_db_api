@@ -26,7 +26,7 @@ class db():
           return '\n'.join([user['username'] for user in users_li])
 
      def _add_user(self, username, skills):
-          record = {username: skills}
+          record = {'language' : skills, 'users'}
           self.db_cursor.insert_one(record)
 
 
