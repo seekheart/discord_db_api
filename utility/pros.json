@@ -1,0 +1,107 @@
+{
+    "django": [
+        "devoidfury#3045"
+    ],
+    "mongo": [
+        "seekheart#5892"
+    ],
+    "regex": [
+        "RikerCabra#6365"
+    ],
+    "sql": [
+        "LewisTheScot#9402",
+        "RikerCabra#6365",
+        "seekheart#5892",
+        "devoidfury#3045",
+        "reddeth#4265"
+    ],
+    "phphtml": [
+        "devoidfury#3045"
+    ],
+    "java": [
+        "bribrian#2748"
+    ],
+    "c++": [
+        "bribrian#2748"
+    ],
+    "scientificcomputing": [
+        "gizmo#2538"
+    ],
+    "css": [
+        "bribrian#2748",
+        "LewisTheScot#9402",
+        "seekheart#5892",
+        "devoidfury#3045",
+        "reddeth#4265"
+    ],
+    "matlab": [
+        "gizmo#2538"
+    ],
+    "labview": [
+        "bribrian#2748"
+    ],
+    "php": [
+        "bribrian#2748",
+        "reddeth#4265"
+    ],
+    "mpi": [
+        "gizmo#2538"
+    ],
+    "c": [
+        "bribrian#2748",
+        "gizmo#2538"
+    ],
+    "doctrine": [
+        "reddeth#4265"
+    ],
+    "javascript": [
+        "bribrian#2748",
+        "LewisTheScot#9402",
+        "RikerCabra#6365",
+        "devoidfury#3045",
+        "reddeth#4265"
+    ],
+    "perl": [
+        "seekheart#5892"
+    ],
+    "linux": [
+        "devoidfury#3045"
+    ],
+    "oracle": [
+        "RikerCabra#6365"
+    ],
+    "c#": [
+        "RikerCabra#6365"
+    ],
+    "visualbasic": [
+        "RikerCabra#6365"
+    ],
+    "r": [
+        "gizmo#2538"
+    ],
+    "zend": [
+        "reddeth#4265"
+    ],
+    "node": [
+        "devoidfury#3045"
+    ],
+    "html": [
+        "bribrian#2748",
+        "LewisTheScot#9402",
+        "seekheart#5892",
+        "reddeth#4265"
+    ],
+    "python": [
+        "bribrian#2748",
+        "LewisTheScot#9402",
+        "gizmo#2538",
+        "seekheart#5892",
+        "devoidfury#3045"
+    ],
+    "angularjs": [
+        "bribrian#2748"
+    ],
+    "firebase": [
+        "bribrian#2748"
+    ]
+}
