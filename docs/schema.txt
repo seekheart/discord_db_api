@@ -1,0 +1,8 @@
+Schema
+
+languages {
+	language : Str
+	users	: [
+			username: str
+			]
+}
