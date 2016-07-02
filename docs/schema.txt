@@ -1,8 +1,5 @@
 Schema
 
 languages {
-	language : Str
-	users	: [
-			username: str
-			]
+     "language" : [user1, user2, user3, ...]
 }
