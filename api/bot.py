@@ -11,7 +11,6 @@ async def on_ready():
     print('Logged in as')
     print(client.user.name)
 
-
     help_dir_channel  = None
     for server in client.servers:
         for channel in server.channels:
@@ -20,15 +19,16 @@ async def on_ready():
 
     result = []
     async for message in client.logs_from(help_dir_channel):
-              temp = { 'message': message.content, 'user': message.author.name}
+              temp = { 'message': message.content, 'user': message.author.name }
               result.append(temp)
 
     MyParserClass = parser_class.ParserClass(result)
     results = MyParserClass.check()
-    print(results)
 
+    my_db = db('localhost', 27017, 'helpTest')
 
-
+# @client.event
+# async def on_message(message):
 
 
 
