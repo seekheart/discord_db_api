@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import parser_class
+import database
 
 
 client = discord.Client()
@@ -25,7 +26,21 @@ async def on_ready():
     MyParserClass = parser_class.ParserClass(result)
     results = MyParserClass.check()
 
-    my_db = db('localhost', 27017, 'helpTest')
+
+    my_db = database.db('localhost', 27017, 'helpTest')
+    for element in results:
+        try:
+            user = element['user']
+        except KeyError as e:
+            print('No User Detected Skipping...')
+            continue
+
+        membership_li = element['membership']
+        my_db.add_user(user, membership_li)
+        get_result = list(set(my_db.get_users('Python')))
+        print(get_result)
+
+
 
 # @client.event
 # async def on_message(message):

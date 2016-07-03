@@ -41,12 +41,12 @@ class db():
           return result
 
      def add_user(self, username, skills):
-          """ Remember to implement Check"""
+          """ Method to add a user to an existing collection"""
           for lang in skills:
                self.db_cursor.update({}, {'$push' :{lang : username}})
 
      def _del_user(self, username, skills):
-          """ Remember to implement Check"""
+          """ deletes user from an existing collection"""
           for lang in skills:
                self.db_cursor.update({}, {'$pull' :{lang : username}})
 

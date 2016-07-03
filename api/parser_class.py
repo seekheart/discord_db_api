@@ -18,6 +18,4 @@ class ParserClass():
                     result["user"] = user
                     result["membership"].append(term)
             users.append(result)
-            asdasd
-
         return users
