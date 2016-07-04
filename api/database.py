@@ -17,7 +17,7 @@ class db():
           try:
                self.db_cursor = self.client[self.db_name].create_collection(self.collection)
           except:
-               pass
+              pass
           finally:
                self.db_cursor = self.client[self.db_name].get_collection(self.collection)
 
@@ -37,20 +37,36 @@ class db():
           """
 
           users_li = self.db_cursor.find_one({},{lang: True})
+          print(users_li)
           result = users_li[lang]
           return result
 
      def add_user(self, username, skills):
           """ Method to add a user to an existing collection"""
-          for lang in skills:
-               self.db_cursor.update({}, {'$push' :{lang : username}})
+          count = self.db_cursor.count()
+
+          if (count == 0):
+              for lang in skills:
+                  #insert THEN update?
+                  self.db_cursor.insert({}, {'$push' :{lang : username}})
+                  self.db_cursor.update({}, {'$push' :{lang : username}})
+                  print("inserted and updated")
+          else:
+              for lang in skills:
+                   self.db_cursor.update({}, {'$push' :{lang : username}})
+                   print("updated")
 
      def _del_user(self, username, skills):
           """ deletes user from an existing collection"""
-          for lang in skills:
-               self.db_cursor.update({}, {'$pull' :{lang : username}})
+          count = self.db_cursor.count()
 
-
+          if (count == 0):
+              print("can't delete from an empty database")
+              return
+          else:
+              for lang in skills:
+                   self.db_cursor.update({}, {'$pull' :{lang : username}})
+                   print("deleted")
 
 #Test out class
 # my_db = db('localhost', 27017, 'helpTest')
