@@ -1,11 +1,14 @@
-class ParserClass():
+class Parser():
 
     def __init__(self, data):
         self.data = data
         self.terms = ['C++', 'C#', 'Python', 'SQL', 'HTML', 'CSS', 'Perl', 'JavaScript', 'Mongo']
 
     def check(self):
-        """check if term (languages) are in messages"""
+        """
+        check if term (languages) in messages and return
+        a list of users
+        """
         users = []
 
         for data in self.data:

@@ -39,6 +39,7 @@ class db():
           users_li = self.db_cursor.find_one({},{lang: True})
           print(users_li)
           result = users_li[lang]
+          result = list(set(result))
           return result
 
      def add_user(self, username, skills):
@@ -50,11 +51,11 @@ class db():
                   #insert THEN update?
                   self.db_cursor.insert({}, {'$push' :{lang : username}})
                   self.db_cursor.update({}, {'$push' :{lang : username}})
-                  print("inserted and updated")
+                  print("Record Inserted and Updated")
           else:
               for lang in skills:
                    self.db_cursor.update({}, {'$push' :{lang : username}})
-                   print("updated")
+                   print("database updated")
 
      def _del_user(self, username, skills):
           """ deletes user from an existing collection"""
