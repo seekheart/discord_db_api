@@ -47,7 +47,7 @@ async def on_ready():
 
         membership_li = element['membership']
         my_db.add_user(user, membership_li)
- 
+
 #listen for a specific message to initiate bot commands
 @client.event
 async def on_message(message):
@@ -62,10 +62,10 @@ async def on_message(message):
         for member in message.server.members:
             for user in user_results:
                 if member.name == user and member.status == member.status.online:
-                    online_users.append(user)
+                    online_users.append(member.mention)
 
         response = print_message(online_users, lang)
-        await client.send_message(message.channel, 
+        await client.send_message(message.channel,
                                                     response)
 
 def print_message(user_results, lang):
