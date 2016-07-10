@@ -6,7 +6,19 @@ Discord Database Class
 import pymongo
 
 class db():
-     """Our database class will be constructed"""
+     """
+     Constructor Method
+
+     Parameters
+     ---------------
+     host = localhost or ip
+     port = port number
+     name = name of database
+
+     Returns
+     ------------------
+     Instance of the db class
+     """
      def __init__(self, host, port, name):
           self.host = host
           self.port = port
@@ -43,7 +55,18 @@ class db():
           return result
 
      def add_user(self, username, skills):
-          """ Method to add a user to an existing collection"""
+          """
+          Add user to DB
+
+          Parameters
+          ----------------
+          username - user to be added
+          skills - languages they are pros in
+
+          Returns
+          -----------------
+          Does not return anything, updates DB
+          """
           count = self.db_cursor.count()
 
           if (count == 0):
@@ -58,7 +81,18 @@ class db():
                    print("database updated")
 
      def _del_user(self, username, skills):
-          """ deletes user from an existing collection"""
+          """
+          Private method to delete a user from a skill.
+
+          Parameters
+          ---------------
+          username - user to be deleted from DB
+          skills - languages to be deleted from.
+
+          Returns
+          ----------------
+          Nothing
+          """
           count = self.db_cursor.count()
 
           if (count == 0):
@@ -68,9 +102,6 @@ class db():
               for lang in skills:
                    self.db_cursor.update({}, {'$pull' :{lang : username}})
                    print("deleted")
-
-#Test out class
-# my_db = db('localhost', 27017, 'helpTest')
-# my_db.get_users('python')
-# my_db.add_user('seekheart', ['abc', 'git'])
-# my_db._del_user('seekheart', ['abc', 'git'])
+      def close_connection(self):
+        print('closed connection')
+        self.close()
