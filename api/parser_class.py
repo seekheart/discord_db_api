@@ -1,13 +1,38 @@
+"""
+Parser Class
+"""
+
+from terms import terms
+
 class Parser():
 
     def __init__(self, data):
+        """
+        Constructor method
+
+        Parameters
+        ---------------
+        Data - {message : user}
+
+        Returns
+        -------------
+        Nothing
+        """
         self.data = data
-        self.terms = ['C++', 'C#', 'Python', 'SQL', 'HTML', 'CSS', 'Perl', 'JavaScript', 'Mongo']
+        self.terms = terms
 
     def check(self):
         """
         check if term (languages) in messages and return
         a list of users
+
+        Parameters
+        ----------------
+        Takes nothing
+
+        Returns
+        -----------------
+        Nothing
         """
         users = []
 

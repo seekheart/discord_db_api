@@ -13,7 +13,7 @@ client = discord.Client()
 token = 'MTk4OTMwNDMyNDg0NTczMTg0.Clr70w.SgQV-SK9VKYOFgFkC1pK3QyXwP0'
 
 #open a global db connection
-my_db = database.db('localhost', 27017, 'helpTest')
+my_db = database.DB('localhost', 27017, 'helpTest')
 
 #initialize our bot and log our bot in to discord
 @client.event
@@ -79,7 +79,5 @@ def print_message(user_results, lang):
         main_message += '\n{}'.format(user)
 
     return main_message
-
-
 
 client.run(token)

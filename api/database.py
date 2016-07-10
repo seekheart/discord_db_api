@@ -5,7 +5,7 @@ Discord Database Class
 
 import pymongo
 
-class db():
+class DB():
      """
      Constructor Method
 
@@ -102,6 +102,19 @@ class db():
               for lang in skills:
                    self.db_cursor.update({}, {'$pull' :{lang : username}})
                    print("deleted")
-      def close_connection(self):
+
+     def close(self):
+        """
+        Method to close the db connection
+
+        Parameters
+        --------------
+        None
+
+        Returns
+        ---------------
+        nothing, connection closed
+        """
+
         print('closed connection')
-        self.close()
+        self.client.close()
