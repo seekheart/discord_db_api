@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 """
-Discord Bot
+Discord Bot Api
 """
 
 import discord
 import asyncio
-from parser_class import Parser
+from user_parser import Parser
 import database
 
 #Setup the discord bot here
@@ -18,6 +18,15 @@ my_db = database.DB('localhost', 27017, 'helpTest')
 #initialize our bot and log our bot in to discord
 @client.event
 async def on_ready():
+    """
+    Initializes bot to login and begin operations
+
+    Parameters:
+    None
+
+    Returns:
+    None
+    """
     #login message for bot
     print('Logged in as{}'.format(client.user.name))
 
@@ -51,6 +60,15 @@ async def on_ready():
 #listen for a specific message to initiate bot commands
 @client.event
 async def on_message(message):
+    """
+    Event listener for user message to bot commands
+
+    Parameters:
+    A message from user
+
+    Returns:
+    A response message to user
+    """
     response = ''
     if message.content.startswith('!bot help'):
         # !bot help python => [!bot, help, python]
@@ -70,9 +88,13 @@ async def on_message(message):
 
 def print_message(user_results, lang):
     """
-    Response message handler
-    takes the list of users and returns a formatted response
-    message.
+    Response message handler for user bot command !bot help
+
+    Parameters:
+    A list of user results from db query and the lang queried
+
+    Returns:
+    A formatted message of all pros in the langauage to user.
     """
     main_message = 'Here is the list of pros in {}:'.format(lang)
     for user in user_results:
@@ -80,4 +102,6 @@ def print_message(user_results, lang):
 
     return main_message
 
-client.run(token)
+if __name__ == '__main__':
+    client.run(token)
+    my_db.close()

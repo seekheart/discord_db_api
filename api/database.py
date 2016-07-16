@@ -9,14 +9,12 @@ class DB():
      """
      Constructor Method
 
-     Parameters
-     ---------------
+     Parameters:
      host = localhost or ip
      port = port number
      name = name of database
 
-     Returns
-     ------------------
+     Returns:-
      Instance of the db class
      """
      def __init__(self, host, port, name):
@@ -35,15 +33,13 @@ class DB():
 
      def get_users(self, lang):
           """
-          Queries list of pros for a given language.
+          Queries DB for users skilled in lang
 
-          Parameters
-          --------------
+          Parameters:
           lang : string
               the language to query
 
-          Returns
-          ----------
+          Returns:
           result : list
               list of pros
           """
@@ -56,15 +52,13 @@ class DB():
 
      def add_user(self, username, skills):
           """
-          Add user to DB
+          Method to add username with specified skills to DB
 
-          Parameters
-          ----------------
+          Parameters:
           username - user to be added
           skills - languages they are pros in
 
-          Returns
-          -----------------
+          Returns:
           Does not return anything, updates DB
           """
           count = self.db_cursor.count()
@@ -84,13 +78,11 @@ class DB():
           """
           Private method to delete a user from a skill.
 
-          Parameters
-          ---------------
+          Parameters:
           username - user to be deleted from DB
           skills - languages to be deleted from.
 
-          Returns
-          ----------------
+          Returns:
           Nothing
           """
           count = self.db_cursor.count()
@@ -107,12 +99,10 @@ class DB():
         """
         Method to close the db connection
 
-        Parameters
-        --------------
+        Parameters:
         None
 
-        Returns
-        ---------------
+        Returns:
         nothing, connection closed
         """
 
