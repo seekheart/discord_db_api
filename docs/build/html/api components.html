@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Api Components &mdash; Discord Help Directory Bot Api 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+    <link rel="top" title="Discord Help Directory Bot Api 1.0.0 documentation" href="index.html"/>
+        <link rel="prev" title="Usage" href="usage.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Discord Help Directory Bot Api
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Api Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#discord-bot">Discord Bot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parser">Parser</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Discord Help Directory Bot Api</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Api Components</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/api components.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-components">
+<h1>Api Components<a class="headerlink" href="#api-components" title="Permalink to this headline">¶</a></h1>
+<p>The following section contains description of all the components involved in the Discord Bot Api.</p>
+<div class="section" id="discord-bot">
+<h2>Discord Bot<a class="headerlink" href="#discord-bot" title="Permalink to this headline">¶</a></h2>
+<p>The bot class uses the discord api provided by <a class="reference external" href="https://github.com/Rapptz/discord.py">Rapptz</a> to do the actual chat room service. For the backend the bot invokes the database class (more info in database class description) to quickly query and return a message of all users with expertise in a language requested by user.</p>
+<span class="target" id="module-bot"></span><p>Discord Bot Api</p>
+<dl class="function">
+<dt id="bot.on_message">
+<code class="descclassname">bot.</code><code class="descname">on_message</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bot.html#on_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bot.on_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event listener for user message to bot commands</p>
+<p>Parameters:
+A message from user</p>
+<p>Returns:
+A response message to user</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bot.on_ready">
+<code class="descclassname">bot.</code><code class="descname">on_ready</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bot.html#on_ready"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bot.on_ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes bot to login and begin operations</p>
+<p>Parameters:
+None</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bot.print_message">
+<code class="descclassname">bot.</code><code class="descname">print_message</code><span class="sig-paren">(</span><em>user_results</em>, <em>lang</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bot.html#print_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bot.print_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response message handler for user bot command !bot help</p>
+<p>Parameters:
+A list of user results from db query and the lang queried</p>
+<p>Returns:
+A formatted message of all pros in the langauage to user.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<p>The database class uses a MongoDB backend that is handled by the PyMongo library. In the bot class the database object is instantiated globally and the connection to the database is opened until termination or logout of the bot.</p>
+<span class="target" id="module-database"></span><p>Discord Database Class</p>
+<dl class="class">
+<dt id="database.DB">
+<em class="property">class </em><code class="descclassname">database.</code><code class="descname">DB</code><span class="sig-paren">(</span><em>host</em>, <em>port</em>, <em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#DB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.DB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor Method</p>
+<p>Parameters:
+host = localhost or ip
+port = port number
+name = name of database</p>
+<p>Returns:-
+Instance of the db class</p>
+<dl class="method">
+<dt id="database.DB.add_user">
+<code class="descname">add_user</code><span class="sig-paren">(</span><em>username</em>, <em>skills</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#DB.add_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.DB.add_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to add username with specified skills to DB</p>
+<p>Parameters:
+username - user to be added
+skills - languages they are pros in</p>
+<p>Returns:
+Does not return anything, updates DB</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="database.DB.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#DB.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.DB.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to close the db connection</p>
+<p>Parameters:
+None</p>
+<p>Returns:
+nothing, connection closed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="database.DB.get_users">
+<code class="descname">get_users</code><span class="sig-paren">(</span><em>lang</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#DB.get_users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#database.DB.get_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries DB for users skilled in lang</p>
+<p>Parameters:
+lang : string</p>
+<blockquote>
+<div>the language to query</div></blockquote>
+<p>Returns:
+result : list</p>
+<blockquote>
+<div>list of pros</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="parser">
+<h2>Parser<a class="headerlink" href="#parser" title="Permalink to this headline">¶</a></h2>
+<p>The parser class is used to parse user massages and extract out languages to associate with username. Typically it is used to populate the database.</p>
+<span class="target" id="module-user_parser"></span><p>User Parser Class</p>
+<dl class="class">
+<dt id="user_parser.Parser">
+<em class="property">class </em><code class="descclassname">user_parser.</code><code class="descname">Parser</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user_parser.html#Parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#user_parser.Parser" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="user_parser.Parser.check">
+<code class="descname">check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/user_parser.html#Parser.check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#user_parser.Parser.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>check if term (languages) in messages and return
+a list of users</p>
+<p>Parameters:
+Takes nothing</p>
+<p>Returns:
+Nothing</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="usage.html" class="btn btn-neutral" title="Usage" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Mike Tung, Fzxt, Exodus111.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
